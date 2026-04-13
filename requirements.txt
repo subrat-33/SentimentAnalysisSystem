@@ -1,8 +1,6 @@
 fastapi
-uvicorn
 scikit-learn
 transformers
 torch
 numpy
 python-multipart
-datasets
