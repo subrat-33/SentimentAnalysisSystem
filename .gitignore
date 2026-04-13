@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Models (Highly recommended to ignore large binary files)
+# Users can recreate these using create_dummy_models.py or train_tfidf_real.py
+models/tfidf_vectorizer.pkl
+models/logistic_regression.pkl
+models/bert_sentiment/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Insight | Dual-Model Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">Theme 🌓</button>
+            <h1>Sentiment Insight</h1>
+            <p>Analyze tweet sentiment using TF-IDF and BERT models simultaneously.</p>
+        </header>
+
+        <main>
+            <div class="input-card">
+                <textarea id="tweetInput" placeholder="Type or paste a tweet or review here..."></textarea>
+                <button id="analyzeBtn" onclick="analyzeSentiment()">
+                    <span id="btnText">Analyze Sentiment</span>
+                    <div id="loadingSpinner" class="spinner hidden"></div>
+                </button>
+            </div>
+
+            <div class="results-container hidden" id="resultsContainer">
+                <!-- TF-IDF Result Card -->
+                <div class="result-card" id="tfidfCard">
+                    <div class="card-header">
+                        <h2>TF-IDF + Logistic Regression</h2>
+                        <div class="sentiment-badge" id="tfidfBadge">--</div>
+                    </div>
+                    <div class="confidence-section">
+                        <label>Confidence</label>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar" id="tfidfProgress"></div>
+                        </div>
+                        <span class="conf-value" id="tfidfConfValue">0%</span>
+                    </div>
+                    <div class="top-words-section">
+                        <h3>Model Contribution (Top 5)</h3>
+                        <div class="chart-container" id="tfidfChart">
+                            <!-- Bars will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BERT Result Card -->
+                <div class="result-card" id="bertCard">
+                    <div class="card-header">
+                        <h2>BERT (Fine-tuned)</h2>
+                        <div class="sentiment-badge" id="bertBadge">--</div>
+                    </div>
+                    <div class="confidence-section">
+                        <label>Confidence</label>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar" id="bertProgress"></div>
+                        </div>
+                        <span class="conf-value" id="bertConfValue">0%</span>
+                    </div>
+                    <div class="top-words-section">
+                        <h3>Token Importance (Top 5)</h3>
+                        <div class="chart-container" id="bertChart">
+                            <!-- Bars will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-banner hidden">
+                Backend connection failed. Please ensure the FastAPI server is running.
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

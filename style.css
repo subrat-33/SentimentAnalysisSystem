@@ -1,0 +1,326 @@
+:root {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --accent-color: #2563eb;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --positive: #16a34a;
+    --negative: #dc2626;
+    --neutral: #64748b;
+    --border: #e2e8f0;
+    --badge-pos-bg: #f0fdf4;
+    --badge-pos-border: #dcfce7;
+    --badge-neg-bg: #fef2f2;
+    --badge-neg-border: #fee2e2;
+    --badge-neu-bg: #f8fafc;
+    --badge-neu-border: #e2e8f0;
+    --progress-bg: #f1f5f9;
+    --input-bg: #ffffff;
+    --placeholder: #94a3b8;
+    --transition: all 0.2s ease;
+}
+
+[data-theme='dark'] {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --accent-color: #3b82f6;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --positive: #4ade80;
+    --negative: #f87171;
+    --neutral: #94a3b8;
+    --border: #334155;
+    --badge-pos-bg: rgba(74, 222, 128, 0.1);
+    --badge-pos-border: rgba(74, 222, 128, 0.2);
+    --badge-neg-bg: rgba(248, 113, 113, 0.1);
+    --badge-neg-border: rgba(248, 113, 113, 0.2);
+    --badge-neu-bg: rgba(148, 163, 184, 0.1);
+    --badge-neu-border: rgba(148, 163, 184, 0.2);
+    --progress-bg: #0f172a;
+    --input-bg: #0f172a;
+    --placeholder: #64748b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: var(--progress-bg);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Common Card Styles */
+.input-card, .result-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+/* Input Card */
+.input-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 0.875rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-primary);
+    resize: vertical;
+    transition: var(--transition);
+}
+
+textarea::placeholder {
+    color: var(--placeholder);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    ring: 2px solid rgba(37, 99, 235, 0.1);
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Results Section */
+.results-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.result-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.sentiment-badge {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.badge-positive {
+    background-color: var(--badge-pos-bg);
+    color: var(--positive);
+    border: 1px solid var(--badge-pos-border);
+}
+
+.badge-negative {
+    background-color: var(--badge-neg-bg);
+    color: var(--negative);
+    border: 1px solid var(--badge-neg-border);
+}
+
+.badge-neutral {
+    background-color: var(--badge-neu-bg);
+    color: var(--neutral);
+    border: 1px solid var(--badge-neu-border);
+}
+
+/* Progress Section */
+.confidence-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.confidence-section label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.progress-bar-bg {
+    height: 8px;
+    background-color: var(--progress-bg);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    border-radius: 9999px;
+    transition: width 0.6s ease;
+}
+
+.conf-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Charts */
+.top-words-section h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.chart-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-primary);
+}
+
+.bar-fill-bg {
+    height: 6px;
+    background-color: var(--progress-bg);
+    border-radius: 9999px;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.6s ease;
+}
+
+/* Helpers */
+.hidden {
+    display: none !important;
+}
+
+.spinner {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid white;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error-banner {
+    padding: 1rem;
+    background-color: var(--badge-neg-bg);
+    border: 1px solid var(--badge-neg-border);
+    color: var(--negative);
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .results-container {
+        grid-template-columns: 1fr;
+    }
+}
