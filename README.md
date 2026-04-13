@@ -43,7 +43,6 @@ Open `index.html` in any modern web browser.
 - `IMPLEMENTATION_DETAILS.md`: Deep-dive technical documentation.
 
 ## 🛠️ Technology Stack
-- **FastAPI / Uvicorn** (Backend)
+- **FastAPI** (Backend)
 - **Scikit-learn** (Classical ML)
-- **HuggingFace Transformers & PyTorch** (Deep Learning)
 - **Vanilla CSS3 & JS (ES6+)** (Frontend)
